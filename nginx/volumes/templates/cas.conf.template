@@ -19,6 +19,11 @@ server {
     # 开启由服务器决定采用的密码套件
     ssl_prefer_server_ciphers on;
 
+    location /api/ {
+      proxy_pass http://host.docker.internal:${APP1_API_PORT}/;
+      break;
+    }
+
     location / {
       root   /projects/cas;
       index  index.html index.htm;

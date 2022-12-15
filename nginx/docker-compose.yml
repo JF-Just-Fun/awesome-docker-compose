@@ -4,6 +4,10 @@ services:
     container_name: nginx
     image: nginx:latest
     restart: always
+    environment:
+      - APP1_API_PORT=${APP1_API_PORT}
+    extra_hosts:
+      - host.docker.internal:host-gateway
     ports:
       - 80:80
       - 443:443
@@ -12,4 +16,5 @@ services:
       - ./volumes/log/:/var/log/nginx/
       - ./volumes/cert/:/etc/nginx/cert/
       - ./volumes/conf.d/:/etc/nginx/conf.d/
+      - ./volumes/templates/:/etc/nginx/templates/
       - ./volumes/nginx.conf:/etc/nginx/nginx.conf
