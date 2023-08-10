@@ -4,12 +4,12 @@ server {
     #如果未在此处配置HTTPS的默认访问端口，可能会造成Nginx无法启动。
     #如果您使用Nginx 1.15.0及以上版本，请使用listen 443 ssl代替listen 443和ssl on。
 
-    server_name cas.yinpo.space;
+    server_name api.yinpo.space;
 
     # 数字证书
-    ssl_certificate cert/cas.yinpo.space.pem;
+    ssl_certificate cert/api.yinpo.space.pem;
     # 服务器私钥
-    ssl_certificate_key cert/cas.yinpo.space.key;
+    ssl_certificate_key cert/api.yinpo.space.key;
     # 停止通信时，加密会话的有效期，在该时间段内不需要重新交换密钥
     ssl_session_timeout 5m;
     # TLS握手时，服务器采用的密码套件
@@ -19,7 +19,8 @@ server {
     # 开启由服务器决定采用的密码套件
     ssl_prefer_server_ciphers on;
 
-    location /api/ {
+    # 请求路径为 api.yinpo.space/cas/
+    location /cas/ {
       proxy_pass http://host.docker.internal:${APP1_API_PORT}/;
       break;
     }

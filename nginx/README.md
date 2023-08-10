@@ -32,4 +32,4 @@ nginx配置会自动将 your-domain.com/web1 映射到 /projects/web1/index.html
 
 定义主域名，作用于 `default.conf` 和 `ssl.conf` 配置下。
 
-如果需要给二级域名设置服务器块，直接在对应的templates中配置即可。例如 `./volumes/templates/cas.conf.template` 中配置的是 `cas.yinpo.com`
+如果需要给二级域名设置服务器块，直接在对应的templates中配置即可。例如 `./volumes/templates/api.conf.template` 中配置的是 `api.yinpo.com`
