@@ -1,7 +1,7 @@
 server {
     listen       80;
     listen  [::]:80;
-    server_name  yinpo.space www.yinpo.space;
+    server_name  ${DOMAIN};
 
     root   /projects;
     index  index.html index.htm;

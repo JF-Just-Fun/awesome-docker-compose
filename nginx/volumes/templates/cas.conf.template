@@ -7,9 +7,9 @@ server {
     server_name cas.yinpo.space;
 
     # 数字证书
-    ssl_certificate cert/8936122_cas.yinpo.space.pem;
+    ssl_certificate cert/cas.yinpo.space.pem;
     # 服务器私钥
-    ssl_certificate_key cert/8936122_cas.yinpo.space.key;
+    ssl_certificate_key cert/cas.yinpo.space.key;
     # 停止通信时，加密会话的有效期，在该时间段内不需要重新交换密钥
     ssl_session_timeout 5m;
     # TLS握手时，服务器采用的密码套件
@@ -22,10 +22,5 @@ server {
     location /api/ {
       proxy_pass http://host.docker.internal:${APP1_API_PORT}/;
       break;
-    }
-
-    location / {
-      root   /projects/cas;
-      index  index.html index.htm;
     }
 }

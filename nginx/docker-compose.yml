@@ -1,18 +1,21 @@
 version: '3'
 services:
   nginx:
-    container_name: nginx
+    container_name: ${COMPOSE_NAME}
     image: nginx:latest
     restart: always
     environment:
       - APP1_API_PORT=${APP1_API_PORT}
+      - DOMAIN=${DOMAIN}
+      - CERT_KEY=${CERT_KEY}
+      - CERT_PEM=${CERT_PEM}
     extra_hosts:
       - host.docker.internal:host-gateway
     ports:
       - 80:80
       - 443:443
     volumes:
-      - ./projects/:/projects/
+      - ${SERVICE_PROJECT_ROOT}:/projects
       - ./volumes/log/:/var/log/nginx/
       - ./volumes/cert/:/etc/nginx/cert/
       - ./volumes/conf.d/:/etc/nginx/conf.d/

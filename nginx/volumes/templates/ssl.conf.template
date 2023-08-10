@@ -4,15 +4,15 @@ server {
     #如果未在此处配置HTTPS的默认访问端口，可能会造成Nginx无法启动。
     #如果您使用Nginx 1.15.0及以上版本，请使用listen 443 ssl代替listen 443和ssl on。
 
-    server_name yinpo.space www.yinpo.space;
+    server_name ${DOMAIN};
 
     root   /projects;
     index  index.html index.htm;
 
     # 数字证书
-    ssl_certificate cert/www.yinpo.space.pem;
+    ssl_certificate cert/${CERT_PEM};
     # 服务器私钥
-    ssl_certificate_key cert/www.yinpo.space.key;
+    ssl_certificate_key cert/${CERT_KEY};
     # 停止通信时，加密会话的有效期，在该时间段内不需要重新交换密钥
     ssl_session_timeout 5m;
     # TLS握手时，服务器采用的密码套件
