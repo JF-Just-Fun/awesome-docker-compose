@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  db_mysql:
+    image: mysql:8.1.0
+    container_name: mysql8.1
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE} # initial database
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - ${MYSQL_PORT}:3306
+    command: --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+    volumes:
+      - ./data:/var/lib/mysql

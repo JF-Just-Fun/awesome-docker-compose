@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  db_redis:
+    image: redis:7
+    container_name: redis7
+    restart: always
+    ports:
+      - ${REDIS_PORT}:6379
+    volumes:
+      - ./data:/data
+    command: /bin/bash -c "redis-server --requirepass ${REDIS_PASSWORD} --appendonly yes"
