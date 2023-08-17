@@ -15,3 +15,8 @@ services:
       --explicit_defaults_for_timestamp=true
     volumes:
       - ./data:/var/lib/mysql
+    networks:
+      - mysql
+
+networks:
+  mysql:

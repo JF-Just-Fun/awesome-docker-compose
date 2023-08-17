@@ -10,3 +10,8 @@ services:
     volumes:
       - ./data:/data
     command: /bin/bash -c "redis-server --requirepass ${REDIS_PASSWORD} --appendonly yes"
+    networks:
+      - redis
+
+networks:
+  redis:
