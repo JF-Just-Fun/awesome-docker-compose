@@ -17,10 +17,10 @@
 
 适当修改.env中的配置，或者增加 `templates` 文件夹下的配置文件
 
-将当前文件夹 `nginx` 整个复制到服务器上，路径随便，推荐放到到根目录下 `/nginx`
+将当前文件夹 `nginx` 整个复制到服务器上，路径随便，推荐放到到根目录下 `/my-docker-compose`
 
 ```shell
-scp -r ./nginx root@123.123.123.123:/
+scp -r ./nginx root@123.123.123.123/my-docker-compose
 ```
 
 进入服务器，启动 `docker compose`
