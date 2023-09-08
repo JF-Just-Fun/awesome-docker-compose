@@ -41,6 +41,8 @@ nginx配置会自动将 your-domain.com/web1 映射到 /projects/web1/index.html
 
 其次，为了适应前端路由，会将完整路由的第一个路由作为项目位置，例如 your-domain.com/web1/a/b/c 会映射到 /projects/web1/index.html上
 
+在测试或本地环境下，可以将`SERVICE_PROJECT_ROOT`赋值为`./projects`
+
 2. APP1_API_PORT
 
 服务器中接口服务的端口，需要保证接口服务也是使用docker启动的

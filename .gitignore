@@ -27,6 +27,7 @@ dist-ssr
 nginx/**/*.key
 nginx/**/*.pem
 nginx/volumes/conf.d
+nginx/projects/*
 
 # redis & mysql
 mysql/data/*
