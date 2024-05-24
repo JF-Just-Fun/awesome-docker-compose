@@ -1,14 +1,16 @@
 version: '3'
 services:
   nginx:
-    container_name: ${COMPOSE_NAME}
+    container_name: yinpo-docker-nginx
     image: nginx:latest
     restart: always
     environment:
-      - APP1_API_PORT=${APP1_API_PORT}
-      - DOMAIN=${DOMAIN}
-      - CERT_KEY=${CERT_KEY}
-      - CERT_PEM=${CERT_PEM}
+      - DOMAIN_MAIN=${DOMAIN_MAIN}
+      - CERT_KEY_MAIN=${CERT_KEY_MAIN}
+      - CERT_PEM_MAIN=${CERT_PEM_MAIN}
+      - DOMAIN_API=${DOMAIN_API}
+      - CERT_KEY_API=${CERT_KEY_API}
+      - CERT_PEM_API=${CERT_PEM_API}
     extra_hosts:
       - host.docker.internal:host-gateway
     ports:

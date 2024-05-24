@@ -10,9 +10,9 @@ server {
     index  index.html index.htm;
 
     # 数字证书
-    ssl_certificate cert/${CERT_PEM};
+    ssl_certificate cert/${CERT_PEM_MAIN};
     # 服务器私钥
-    ssl_certificate_key cert/${CERT_KEY};
+    ssl_certificate_key cert/${CERT_KEY_MAIN};
     # 停止通信时，加密会话的有效期，在该时间段内不需要重新交换密钥
     ssl_session_timeout 5m;
     # TLS握手时，服务器采用的密码套件
@@ -23,12 +23,10 @@ server {
     ssl_prefer_server_ciphers on;
 
     location ~ ^/([^/]*)/((?!index\.html$).)*$ {
-      add_header yinpo-localtion-file file-$request_filename;
       try_files $uri $uri/ $uri/index.html /$1/index.html /404.html;
     }
 
     location / {
-      add_header yinpo-localtion-root file-$request_filename;
       try_files $uri $uri/ $uri/index.html =404;
     }
 
